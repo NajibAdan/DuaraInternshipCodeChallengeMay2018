@@ -16,10 +16,13 @@ def convert(number):
     pattern = "^"
     for x in number_str:
         pattern = pattern + "[" + keypad[int(x)] + "]"
-    pattern += "$"
+    pattern += "$"  #regex pattern to search the words that match the pattern in the dictionary provided with valid words
     file = open('words.txt', 'r')
     for word in file:
-        if re.search(pattern, word.lower()):
+        if re.match(pattern, word.lower()):
             possible_words.append(word.strip())
 
     print possible_words
+
+
+convert('228')
